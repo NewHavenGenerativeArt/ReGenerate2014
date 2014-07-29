@@ -7,4 +7,4 @@ The code behind selected pieces at Re:Generate 2014
 
 Here are the pieces:
 
-* The sketch that created the [[invitation]]
+* The sketch that created the [invitation](invitation)
