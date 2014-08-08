@@ -9,6 +9,6 @@ Here are the pieces:
 
 * The sketch that created the [invitation](invitation)
 * @danbernier's [fractal circles](fractal_circles)
-* TODO: add the code for @danbernier's bubble webcam interaction
+* @danbernier's [lightbugs](lightbugs)
 * TODO: add the code for @danbernier's wordcram webcam interaction
 * TODO: add the code for the pool noodle palettizer™
