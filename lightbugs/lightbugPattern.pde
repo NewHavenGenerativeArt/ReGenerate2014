@@ -70,17 +70,17 @@ class WebCamThresholdLightbugPattern extends LightbugPattern {
   Capture cam;
 
   WebCamThresholdLightbugPattern(PApplet parent) {
-    //println(Capture.list());
-    String sizeString = "size=640x360";
+    println(Capture.list());
     //println(sizeString);
-    cam = new Capture(parent, "name=/dev/video0," + sizeString + ",fps=15");
+    cam = new Capture(parent, "name=/dev/video0,size=320x240,fps=15");
     cam.start();
   }
 
   PGraphics render(PGraphics g) {
     if (cam.available()) {
       cam.read();
-      g.scale(-2.0, 2.0);
+      float scaleSize = float(width) / cam.width;
+      g.scale(-scaleSize, scaleSize);
       g.image(cam, -cam.width, 0);
       g.filter(GRAY);
       g.filter(THRESHOLD, bestThresholdLevel(cam));

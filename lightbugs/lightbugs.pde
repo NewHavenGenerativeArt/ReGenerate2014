@@ -4,27 +4,29 @@ LightbugPattern[] patterns;
 WebCamDiffLightbugPattern camDiff;
 
 void setup() {
-  size(1280, 720);
+  size(1152, 864); //1280, 720);  // max: 1152x864 (4:3)
   
   patterns = new LightbugPattern[] {
-    camDiff = new WebCamDiffLightbugPattern(this),
+    //camDiff = new WebCamDiffLightbugPattern(this),
     new WebCamThresholdLightbugPattern(this),
 //    echoer = new TypeEchoLightbugPattern(),
-    new StaticTextLightbugPattern("bugs!"),
+//    new StaticTextLightbugPattern("bugs!"),
 //    new LetterMorphLightbugPattern("abc SOS 1234567890 SOS ", 3),
   };
   
   makeLightbugs(1000);
+  
+  
   
   background(0);
   noStroke();
   colorMode(HSB);
 }
 
-boolean showImage;  
+boolean showImage = true;  
 void keyTyped() {
   if (key == ' ') { showImage = !showImage; }
-  if (key == 'r') { camDiff.reset(); }
+//  if (key == 'r') { camDiff.reset(); }
 }
 
 void draw() {
@@ -37,7 +39,13 @@ void draw() {
   PImage pattern = patterns[patternNum].asPImage();
   //pattern.resize(640, 480);  // This might be useful - so patterns don't CARE what size they need to be.
   
-  if (showImage) { image(pattern, 0, 0); }
+  if (showImage) { 
+    image(pattern, 0, 0);
+    pushStyle();
+    fill(0, 120);
+    rect(0, 0, width, height);
+    popStyle(); 
+  }
   moveLightbugs(pattern);
   patterns[patternNum].update();
   drawLightbugs();

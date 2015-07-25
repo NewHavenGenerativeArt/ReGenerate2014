@@ -15,6 +15,7 @@ void moveLightbugs(PImage map) {
 
 void drawLightbugs() {
   colorShifter.next();
+  fill(#FFF7AA);
   for (Lightbug bug : lightbugs) {
     bug.draw();
   }
@@ -45,7 +46,7 @@ class Lightbug {
 
   private float accDamp = 0.025;
   private float maxVel = 3;
-  private float size = map(pow(random(1), 3), 0, 1, 2, 7);
+  private float size = map(pow(random(1), 3), 0, 1, 5, 15);
 
   protected PVector target = new PVector(0, 0);
 
@@ -58,8 +59,8 @@ class Lightbug {
   }
 
   void draw() {
-    float hue = (colorShifter.current() + 255) % 255;
-    fill(hue, 149, 240, 170);
+    //float hue = (colorShifter.current() + 255) % 255;
+    //fill(hue, 149, 240, 170);
     ellipse(loc.x, loc.y, size, size);
   }
 
